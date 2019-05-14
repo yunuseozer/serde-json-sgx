@@ -1,3 +1,5 @@
+use std::prelude::v1::*;
+
 use super::Value;
 use crate::map::Map;
 use crate::number::Number;

@@ -1,3 +1,4 @@
+use std::prelude::v1::*;
 use crate::error::{Error, ErrorCode, Result};
 use crate::map::Map;
 use crate::number::Number;
