@@ -11,23 +11,25 @@ categories = ["encoding"]
 readme = "README.md"
 include = ["build.rs", "src/**/*.rs", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
 edition = "2018"
+exclude = ["/sgx/*"]
 
 [dependencies]
-serde = { version = "1.0.100", default-features = false }
-indexmap = { version = "1.5", optional = true }
-itoa = { version = "0.4.3", default-features = false }
+serde = { git = "https://github.com/mesalock-linux/serde-sgx" }
+indexmap = { git = "https://github.com/mesalock-linux/indexmap-sgx", optional = true }
+itoa = { git = "https://github.com/mesalock-linux/itoa-sgx" }
 ryu = "1.0"
+sgx_tstd = { rev = "v1.1.3", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
 
 [dev-dependencies]
-automod = "1.0"
-rustversion = "1.0"
-serde_bytes = "0.11"
-serde_derive = "1.0"
-serde_stacker = "0.1"
-trybuild = { version = "1.0.19", features = ["diff"] }
+#automod = "1.0"
+#rustversion = "1.0"
+#serde_bytes = "0.11"
+#serde_derive = "1.0"
+#serde_stacker = "0.1"
+#trybuild = { version = "1.0.19", features = ["diff"] }
 
-[workspace]
-members = ["tests/crate"]
+#[workspace]
+#members = ["tests/crate"]
 
 [package.metadata.docs.rs]
 features = ["raw_value", "unbounded_depth"]
@@ -40,9 +42,9 @@ features = ["raw_value"]
 ### FEATURES #################################################################
 
 [features]
-default = ["std"]
+default = ["mesalock_sgx", "std"]
 
-std = ["serde/std"]
+std = ["serde/std", "mesalock_sgx"]
 
 # Provide integration for heap-allocated collections without depending on the
 # rest of the Rust standard library.
@@ -84,3 +86,5 @@ raw_value = []
 # overflow the stack after deserialization has completed, including, but not
 # limited to, Display and Debug and Drop impls.
 unbounded_depth = []
+
+mesalock_sgx = ["sgx_tstd"]
