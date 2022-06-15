@@ -16,7 +16,7 @@ exclude = ["/sgx/*"]
 [dependencies]
 serde = { git = "https://github.com/yunuseozer/serde-sgx" }
 indexmap = { git = "https://github.com/mesalock-linux/indexmap-sgx", optional = true }
-itoa = { git = "https://github.com/mesalock-linux/itoa-sgx" }
+itoa = { git = "https://github.com/yunuseozer/itoa-sgx" }
 ryu = "1.0"
 sgx_tstd = { rev = "v1.1.4-upgrade", git = "https://github.com/yunuseozer/incubator-teaclave-sgx-sdk.git", optional = true }
 
