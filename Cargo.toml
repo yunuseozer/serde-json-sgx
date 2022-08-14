@@ -2,12 +2,12 @@
 name = "serde_json"
 version = "1.0.83" # remember to update html_root_url
 authors = ["Erick Tryzelaar <erick.tryzelaar@gmail.com>", "David Tolnay <dtolnay@gmail.com>"]
-categories = ["encoding", "parser-implementations", "no-std"]
-description = "A JSON serialization file format"
-documentation = "https://docs.serde.rs/serde_json/"
-edition = "2018"
-keywords = ["json", "serde", "serialization"]
 license = "MIT OR Apache-2.0"
+description = "A JSON serialization file format"
+repository = "https://github.com/serde-rs/json"
+documentation = "https://docs.serde.rs/serde_json/"
+keywords = ["json", "serde", "serialization"]
+categories = ["encoding"]
 readme = "README.md"
 include = ["build.rs", "src/**/*.rs", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
 edition = "2018"
@@ -34,7 +34,6 @@ sgx_tstd = { rev = "v1.1.4-upgrade", git = "https://github.com/yunuseozer/incuba
 [package.metadata.docs.rs]
 features = ["raw_value", "unbounded_depth"]
 targets = ["x86_64-unknown-linux-gnu"]
-rustdoc-args = ["--cfg", "docsrs"]
 
 [package.metadata.playground]
 features = ["raw_value"]
@@ -56,7 +55,7 @@ alloc = ["serde/alloc"]
 # Make serde_json::Map use a representation which maintains insertion order.
 # This allows data to be read into a Value and written back to a JSON string
 # while preserving the order of map keys in the input.
-preserve_order = ["indexmap", "std"]
+preserve_order = ["indexmap"]
 
 # Use sufficient precision when parsing fixed precision floats from JSON to
 # ensure that they maintain accuracy when round-tripped through JSON. This comes
