@@ -14,7 +14,7 @@ edition = "2018"
 exclude = ["/sgx/*"]
 
 [dependencies]
-serde = { git = "https://github.com/yunuseozer/serde-sgx" }
+serde = { rev = "sgx_1.1.4", git = "https://github.com/yunuseozer/serde-sgx" }
 indexmap = { git = "https://github.com/mesalock-linux/indexmap-sgx", optional = true }
 itoa = { git = "https://github.com/yunuseozer/itoa-sgx" }
 ryu = "1.0"
